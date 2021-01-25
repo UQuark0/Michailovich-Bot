@@ -7,6 +7,7 @@ import (
 )
 
 const TOKEN = "1292527443:AAEbZeT9LuXeXQcFtloDH35xmDWtFiqV1Vw"
+const MISHA_ID = 426117512
 
 func main() {
 	bot, err := tgbotapi.NewBotAPI(TOKEN)
@@ -28,7 +29,7 @@ func main() {
 
 		log.Printf("%s %s [%d] > %s", update.Message.From.FirstName, update.Message.From.LastName, update.Message.From.ID, update.Message.Text)
 
-		if update.Message.From.FirstName == "м" && update.Message.From.LastName == "б" {
+		if update.Message.From.ID == MISHA_ID {
 			msg := tgbotapi.NewMessage(update.Message.Chat.ID, "Миша?")
 			msg.ReplyToMessageID = update.Message.MessageID
 
