@@ -26,6 +26,8 @@ func main() {
 			continue
 		}
 
+		log.Printf("%s %s [%d] > %s", update.Message.From.FirstName, update.Message.From.LastName, update.Message.From.ID, update.Message.Text)
+
 		if update.Message.From.FirstName == "м" && update.Message.From.LastName == "б" {
 			msg := tgbotapi.NewMessage(update.Message.Chat.ID, "Миша?")
 			msg.ReplyToMessageID = update.Message.MessageID
